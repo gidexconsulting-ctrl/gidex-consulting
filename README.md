@@ -7,31 +7,28 @@ Sitio web de Gidex consulting, consultora peruana de ingeniería y tecnología c
 
 🌐 **Sitio publicado:** https://gidexconsulting-ctrl.github.io/gidex-consulting/
 
-## Contenido
+## Cómo está organizado
 
-- Portada con propuesta de valor
-- Problemas que resolvemos
-- Servicios: automatización, sistematización y sistemas a medida, inteligencia artificial, analítica y tableros, encuestas y estudios, capacitación
-- Producto propio: Algarrobo, sistema de gestión educativa
-- Cómo trabajamos (5 etapas)
-- Diagnóstico rápido interactivo (6 preguntas)
-- Experiencia del equipo y herramientas
-- Quiénes somos: misión, visión, valores y sectores
-- Equipo: Giancarlos Adanaque Flores y Denis Javier García Cortez
-- Preguntas frecuentes
-- Formulario de contacto y comentarios que llega a **gidex.consulting@gmail.com**
+El sitio funciona como una aplicación, igual que Algarrobo: un **menú lateral** y **ventanas** que se abren una a la vez (sin una página larga), con botones «Anterior» y «Siguiente».
 
-## Estructura
+| Grupo | Ventanas |
+|---|---|
+| Gidex consulting | Inicio · ¿Por qué Gidex? · Quiénes somos (misión y visión) · Valores y sectores · Equipo |
+| Servicios | Servicios (8, con «¿Qué incluye?») · Cómo trabajamos · Algarrobo · Experiencia · Trayectoria |
+| Contigo | Diagnóstico rápido · Testimonios · Preguntas frecuentes · Contacto |
+
+Cada ventana tiene su propia dirección (por ejemplo `#servicios`), así se puede compartir directamente. Las direcciones antiguas (`servicios.html`, `contacto.html`, etc.) redirigen a su ventana.
+
+Colores y tipografías de Algarrobo: azul rey `#003399`, celeste `#00BFFF`, fondo `#F4F9FC`; Unbounded e Instrument Sans.
+
+## Archivos
 
 ```
-index.html      página
+index.html      menú lateral y todas las ventanas
 styles.css      estilos
-app.js          menú, animaciones, diagnóstico rápido y formulario
+app.js          ventanas, diagnóstico rápido y formulario
 assets/         logo, fotos del equipo e imagen para redes sociales
-robots.txt, sitemap.xml
 ```
-
-Sitio estático, sin dependencias: se publica con GitHub Pages desde la rama `main`.
 
 ## Formulario de contacto
 

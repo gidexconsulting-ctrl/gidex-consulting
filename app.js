@@ -1,42 +1,46 @@
-/* Gidex consulting · interacciones de la página */
+/* Gidex consulting · navegación por ventanas, diagnóstico rápido y formulario */
 (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const CORREO = "gidex.consulting@gmail.com";
   const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  // Año del copyright
   const anio = $("#anio"); if(anio) anio.textContent = new Date().getFullYear();
 
-  // Cabecera sólida al bajar
-  const cab = $("#cabecera"), alBajar = () => cab.classList.toggle("solida", scrollY > 30);
-  addEventListener("scroll", alBajar, {passive: true}); alBajar();
-
-  // Menú en celulares
-  const hamb = $("#hamb"), menu = $("#menu");
-  const cerrarMenu = () => { menu.classList.remove("abierto"); hamb.setAttribute("aria-expanded", "false"); hamb.setAttribute("aria-label", "Abrir menú"); };
-  hamb.addEventListener("click", () => { const abre = !menu.classList.contains("abierto"); menu.classList.toggle("abierto", abre); hamb.setAttribute("aria-expanded", String(abre)); hamb.setAttribute("aria-label", abre ? "Cerrar menú" : "Abrir menú"); });
-  $$("a", menu).forEach(a => a.addEventListener("click", cerrarMenu));
+  // ===== Ventanas: se muestra una sola a la vez, según el #enlace =====
+  const zona = $("#ventanas"), vistas = $$(".vista"), lateral = $("#lateral"), hamb = $("#hamb");
+  const cerrarMenu = () => { lateral.classList.remove("abierto"); hamb.setAttribute("aria-expanded", "false"); };
+  hamb.addEventListener("click", () => { const a = !lateral.classList.contains("abierto"); lateral.classList.toggle("abierto", a); hamb.setAttribute("aria-expanded", String(a)); });
+  $("#velo").addEventListener("click", cerrarMenu);
   addEventListener("keydown", e => { if(e.key === "Escape") cerrarMenu(); });
 
-  // Aparición suave de los bloques al desplazarse
-  const bloques = $$(".tarjeta, .serv, .caso, .pasos li, .mv-tar, .valores div, .miembro, .faq details, .diag, .form");
-  if(!RM && "IntersectionObserver" in window){
-    bloques.forEach(b => b.classList.add("revelar"));
-    const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } }), {threshold: .12});
-    bloques.forEach(b => io.observe(b));
-  }
+  let contados = false;
+  const mostrar = (id, foco) => {
+    const v = $("#v-" + id) || $("#v-inicio"), nombre = v.id.slice(2);
+    vistas.forEach(x => { x.hidden = x !== v; x.classList.remove("entra"); });
+    if(!RM){ void v.offsetWidth; v.classList.add("entra"); }
+    $$("#lat-nav a").forEach(a => { if(a.dataset.v === nombre) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+    $("#sup-titulo").textContent = v.dataset.titulo; $("#sup-grupo").textContent = v.dataset.grupo;
+    document.title = (nombre === "inicio" ? "" : v.dataset.titulo + " · ") + "Gidex consulting";
+    zona.scrollTop = 0; cerrarMenu();
+    if(foco) zona.focus({preventScroll: true});
+    if(nombre === "inicio" && !contados){ contados = true; contar(); }
+  };
+  const ruta = () => (location.hash || "#inicio").slice(1);
+  addEventListener("hashchange", () => mostrar(ruta(), true));
+  mostrar(ruta(), false);
 
   // Contadores del panel de ejemplo
-  $$("[data-cuenta]").forEach(el => { const fin = +el.dataset.cuenta; if(RM){ el.textContent = fin; return; }
-    const t0 = performance.now(), paso = t => { const p = Math.min(1, (t - t0) / 1600); el.textContent = Math.round(fin * (1 - Math.pow(1 - p, 3))); if(p < 1) requestAnimationFrame(paso); }; requestAnimationFrame(paso); });
+  function contar(){ $$("[data-cuenta]").forEach(el => { const fin = +el.dataset.cuenta; if(RM){ el.textContent = fin; return; }
+    const t0 = performance.now(), paso = t => { const p = Math.min(1, (t - t0) / 1600); el.textContent = Math.round(fin * (1 - Math.pow(1 - p, 3))); if(p < 1) requestAnimationFrame(paso); }; requestAnimationFrame(paso); }); }
 
-  // Botones que eligen el motivo del mensaje (por ejemplo, «Solicita una demostración»)
-  // Motivo y mensaje que llegan desde otras páginas (por ejemplo, contacto.html?motivo=Testimonio)
-  const fm = $("#form"), qs = new URLSearchParams(location.search);
-  if(fm){ const mo = qs.get("motivo"), me = qs.get("mensaje"); const op = mo && [...fm.motivo.options].find(o => o.text === mo); if(op) fm.motivo.value = op.value; if(me) fm.mensaje.value = me; }
+  // ===== Formulario: motivo y mensaje que vienen de otros botones o enlaces =====
+  const form = $("#form");
+  const ponerMotivo = (mo, me) => { if(!form) return; const op = mo && [...form.motivo.options].find(o => o.text === mo); if(op) form.motivo.value = op.value; if(me && !form.mensaje.value) form.mensaje.value = me; };
+  const qs = new URLSearchParams(location.search); ponerMotivo(qs.get("motivo"), qs.get("mensaje"));
+  document.addEventListener("click", e => { const a = e.target.closest("[data-motivo]"); if(a) ponerMotivo(a.dataset.motivo, a.dataset.mensaje); });
 
-  // Diagnóstico rápido
-  if($("#diag")) $("#diag").addEventListener("submit", e => {
+  // ===== Diagnóstico rápido =====
+  const diag = $("#diag");
+  if(diag) diag.addEventListener("submit", e => {
     e.preventDefault();
     const f = e.currentTarget, res = $("#diag-res"), r = [1, 2, 3, 4, 5, 6].map(i => f[`q${i}`].value);
     if(r.some(v => v === "")){ res.hidden = false; res.innerHTML = "<p>Responde las 6 preguntas para ver tu resultado.</p>"; return; }
@@ -46,14 +50,16 @@
     const nivel = pct >= 84 ? ["Organización avanzada", "Tienes una buena base digital. Podemos ayudarte a dar el siguiente paso con inteligencia artificial y analítica avanzada."]
       : pct >= 50 ? ["En camino", "Ya diste pasos importantes, pero aún hay tareas manuales que te quitan tiempo."]
       : ["Gran oportunidad de mejora", "Hay mucho tiempo que puedes ahorrar automatizando y ordenando tu información. ¡Es el mejor momento para empezar!"];
+    const msj = `Hice el diagnóstico rápido en la web: ${pct} % (${nivel[0]}).${recs.length ? ` Me interesa ${recs[0]}.` : ""}`;
     res.hidden = false;
-    res.innerHTML = `<h3>${nivel[0]} · ${pct} %</h3><div class="barra"><i style="width:0"></i></div><p>${nivel[1]}</p>${recs.length ? `<p><b>Te recomendamos empezar por:</b> ${recs.slice(0, 3).join("; ")}.</p>` : ""}<a class="btn btn-sol" id="diag-ir" href="contacto.html?${new URLSearchParams({motivo: "Diagnóstico gratuito", mensaje: `Hice el diagnóstico rápido en la web: ${pct} % (${nivel[0]}).${recs.length ? ` Me interesa ${recs[0]}.` : ""}`})}">Quiero mi diagnóstico gratuito</a>`;
+    res.innerHTML = `<h3>${nivel[0]} · ${pct} %</h3><div class="barra"><i style="width:0"></i></div><p>${nivel[1]}</p>${recs.length ? `<p><b>Te recomendamos empezar por:</b> ${recs.slice(0, 3).join("; ")}.</p>` : ""}<a class="btn btn-sol" href="#contacto" data-motivo="Diagnóstico gratuito">Quiero mi diagnóstico gratuito</a>`;
+    $("[data-motivo]", res).dataset.mensaje = msj;
     requestAnimationFrame(() => { $(".barra i", res).style.width = pct + "%"; });
   });
 
-  // Formulario de contacto y comentarios: se envía al correo de Gidex consulting
-  const form = $("#form"), estado = $("#estado"), btn = $("#enviar");
+  // ===== Formulario de contacto y comentarios: llega al correo de Gidex consulting =====
   if(!form) return;
+  const estado = $("#estado"), btn = $("#enviar");
   const avisar = (txt, tipo) => { estado.textContent = txt; estado.className = "estado " + (tipo || ""); };
   form.addEventListener("submit", async e => {
     e.preventDefault();
