@@ -5,7 +5,7 @@
   const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Año del copyright
-  $("#anio").textContent = new Date().getFullYear();
+  const anio = $("#anio"); if(anio) anio.textContent = new Date().getFullYear();
 
   // Cabecera sólida al bajar
   const cab = $("#cabecera"), alBajar = () => cab.classList.toggle("solida", scrollY > 30);
@@ -31,10 +31,12 @@
     const t0 = performance.now(), paso = t => { const p = Math.min(1, (t - t0) / 1600); el.textContent = Math.round(fin * (1 - Math.pow(1 - p, 3))); if(p < 1) requestAnimationFrame(paso); }; requestAnimationFrame(paso); });
 
   // Botones que eligen el motivo del mensaje (por ejemplo, «Solicita una demostración»)
-  $$("[data-asunto]").forEach(a => a.addEventListener("click", () => { const sel = $("#form [name=motivo]"); const op = [...sel.options].find(o => /Algarrobo/.test(o.text)); if(op) sel.value = op.value; }));
+  // Motivo y mensaje que llegan desde otras páginas (por ejemplo, contacto.html?motivo=Testimonio)
+  const fm = $("#form"), qs = new URLSearchParams(location.search);
+  if(fm){ const mo = qs.get("motivo"), me = qs.get("mensaje"); const op = mo && [...fm.motivo.options].find(o => o.text === mo); if(op) fm.motivo.value = op.value; if(me) fm.mensaje.value = me; }
 
   // Diagnóstico rápido
-  $("#diag").addEventListener("submit", e => {
+  if($("#diag")) $("#diag").addEventListener("submit", e => {
     e.preventDefault();
     const f = e.currentTarget, res = $("#diag-res"), r = [1, 2, 3, 4, 5, 6].map(i => f[`q${i}`].value);
     if(r.some(v => v === "")){ res.hidden = false; res.innerHTML = "<p>Responde las 6 preguntas para ver tu resultado.</p>"; return; }
@@ -45,14 +47,13 @@
       : pct >= 50 ? ["En camino", "Ya diste pasos importantes, pero aún hay tareas manuales que te quitan tiempo."]
       : ["Gran oportunidad de mejora", "Hay mucho tiempo que puedes ahorrar automatizando y ordenando tu información. ¡Es el mejor momento para empezar!"];
     res.hidden = false;
-    res.innerHTML = `<h3>${nivel[0]} · ${pct} %</h3><div class="barra"><i style="width:0"></i></div><p>${nivel[1]}</p>${recs.length ? `<p><b>Te recomendamos empezar por:</b> ${recs.slice(0, 3).join("; ")}.</p>` : ""}<a class="btn btn-sol" href="#contacto" id="diag-ir">Quiero mi diagnóstico gratuito</a>`;
+    res.innerHTML = `<h3>${nivel[0]} · ${pct} %</h3><div class="barra"><i style="width:0"></i></div><p>${nivel[1]}</p>${recs.length ? `<p><b>Te recomendamos empezar por:</b> ${recs.slice(0, 3).join("; ")}.</p>` : ""}<a class="btn btn-sol" id="diag-ir" href="contacto.html?${new URLSearchParams({motivo: "Diagnóstico gratuito", mensaje: `Hice el diagnóstico rápido en la web: ${pct} % (${nivel[0]}).${recs.length ? ` Me interesa ${recs[0]}.` : ""}`})}">Quiero mi diagnóstico gratuito</a>`;
     requestAnimationFrame(() => { $(".barra i", res).style.width = pct + "%"; });
-    $("#diag-ir").addEventListener("click", () => { const fm = $("#form"); fm.motivo.value = "Diagnóstico gratuito";
-      if(!fm.mensaje.value) fm.mensaje.value = `Hice el diagnóstico rápido en la web: ${pct} % (${nivel[0]}).${recs.length ? ` Me interesa ${recs[0]}.` : ""}`; });
   });
 
   // Formulario de contacto y comentarios: se envía al correo de Gidex consulting
   const form = $("#form"), estado = $("#estado"), btn = $("#enviar");
+  if(!form) return;
   const avisar = (txt, tipo) => { estado.textContent = txt; estado.className = "estado " + (tipo || ""); };
   form.addEventListener("submit", async e => {
     e.preventDefault();
