@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gidexconsulting-ctrl.github.io/gidex-consulting/sitemap.xml
