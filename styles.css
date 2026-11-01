@@ -200,7 +200,7 @@ p{margin:0 0 .9em}
 
 /* Equipo */
 .miembro{display:grid;grid-template-columns:190px 1fr;gap:20px;background:var(--superficie);border:1px solid var(--linea);border-radius:22px;padding:18px;box-shadow:var(--sombra);align-items:start}
-.miembro img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:16px;background:var(--hundido)}
+.miembro img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:16px;background:linear-gradient(180deg,#D6E6FB 0%,#EAF4FB 100%)}
 .miembro h3{font-size:1.12rem;margin-bottom:2px}
 .rol{color:var(--acento);font-weight:700;font-size:.9rem}
 .m-txt p{font-size:.91rem}
