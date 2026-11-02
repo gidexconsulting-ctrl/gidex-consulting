@@ -163,12 +163,25 @@
     medirEvento("diagnostico-" + pct, T("Diagnóstico", "Assessment"));
   });
 
-  // ===== Envío de formularios al correo de Gidex consulting (FormSubmit) =====
+  // ===== Envío de formularios al correo de Gidex consulting =====
+  // Web3Forms (rápido): pega aquí la clave de acceso que llega a gidex.consulting@gmail.com al registrarse en web3forms.com.
+  // Mientras esté vacía se usa FormSubmit.
+  const WEB3FORMS_CLAVE = "";
   const enviarCorreo = async (datos, asunto) => {
-    const r = await fetch(`https://formsubmit.co/ajax/${CORREO}`, {method: "POST", headers: {"Content-Type": "application/json", "Accept": "application/json"},
-      body: JSON.stringify({...datos, _subject: asunto, _replyto: datos.correo, _template: "table", _captcha: "false"})});
-    const j = await r.json().catch(() => ({}));
-    if(!r.ok || String(j.success) === "false") throw new Error(j.message || "envío");
+    const ctl = new AbortController(), reloj = setTimeout(() => ctl.abort(), 25000);
+    try{
+      const [url, cuerpo] = WEB3FORMS_CLAVE
+        ? ["https://api.web3forms.com/submit", {access_key: WEB3FORMS_CLAVE, subject: asunto, from_name: "Web Gidex consulting", replyto: datos.correo, ...datos}]
+        : [`https://formsubmit.co/ajax/${CORREO}`, {...datos, _subject: asunto, _replyto: datos.correo, _template: "table", _captcha: "false"}];
+      const r = await fetch(url, {method: "POST", signal: ctl.signal, referrerPolicy: "no-referrer-when-downgrade", headers: {"Content-Type": "application/json", "Accept": "application/json"}, body: JSON.stringify(cuerpo)});
+      const j = await r.json().catch(() => ({}));
+      if(!r.ok || String(j.success) === "false") throw new Error(j.message || "envío");
+    }finally{ clearTimeout(reloj); }
+  };
+  // Si el envío falla, no se abre nada solo: se ofrecen botones para enviarlo por WhatsApp o por correo
+  const respaldo = (estado, txtWA, asunto, cuerpo, msjEs, msjEn) => {
+    estado.className = "estado error";
+    estado.innerHTML = `${T(msjEs, msjEn)}<span class="respaldo"><a class="btn btn-wa" href="${waUrl(txtWA)}" target="_blank" rel="noopener">💬 ${T("Enviar por WhatsApp", "Send via WhatsApp")}</a><a class="btn btn-borde-azul" href="mailto:${CORREO}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}">✉️ ${T("Enviar por correo", "Send by email")}</a></span>`;
   };
   const validar = (f, campos, avisar) => {
     $$(".invalido", f).forEach(x => x.classList.remove("invalido"));
@@ -188,15 +201,15 @@
       if(form._honey.value) return;
       if(!validar(form, ["nombre", "correo", "mensaje"], avisar)) return;
       const datos = {nombre: form.nombre.value.trim(), correo: form.correo.value.trim(), celular: form.celular.value.trim(), organizacion: form.organizacion.value.trim(), motivo: form.motivo.value, mensaje: form.mensaje.value.trim(), idioma: L() ? "inglés" : "español"};
-      const txtBtn = btn.textContent; btn.disabled = true; btn.textContent = T("Enviando…", "Sending…"); avisar("");
+      const txtBtn = btn.textContent; btn.disabled = true; btn.textContent = T("Enviando…", "Sending…"); avisar(T("Enviando tu mensaje, espera unos segundos…", "Sending your message, please wait a few seconds…"));
       try{
         await enviarCorreo(datos, `Web Gidex consulting · ${datos.motivo} · ${datos.nombre}`);
         form.reset(); avisar(T("¡Gracias! Tu mensaje fue enviado. Te responderemos pronto.", "Thank you! Your message was sent. We will reply soon."), "ok");
         medirEvento("formulario-enviado", "Contacto");
       }catch(_){
         const cuerpo = `Nombre: ${datos.nombre}\nCorreo: ${datos.correo}\nCelular: ${datos.celular || "-"}\nOrganización: ${datos.organizacion || "-"}\nMotivo: ${datos.motivo}\n\n${datos.mensaje}`;
-        location.href = `mailto:${CORREO}?subject=${encodeURIComponent("Web Gidex consulting · " + datos.motivo)}&body=${encodeURIComponent(cuerpo)}`;
-        avisar(T("No pudimos enviarlo desde la página; se abrió tu correo con el mensaje listo para enviar.", "We could not send it from the page; your email app opened with the message ready to send."), "error");
+        respaldo(estado, `Hola Gidex consulting, soy ${datos.nombre}. ${datos.mensaje}`, "Web Gidex consulting · " + datos.motivo, cuerpo,
+          "No pudimos enviar tu mensaje desde la página. Tu texto sigue guardado; puedes enviarlo con un clic:", "We could not send your message from the page. Your text is still here; you can send it with one click:");
       }finally{ btn.disabled = false; btn.textContent = txtBtn; }
     });
   }
@@ -226,7 +239,7 @@
       const datos = {nombre: ag.nombre.value.trim(), correo: ag.correo.value.trim(), celular: ag.celular.value.trim(), organizacion: ag.organizacion.value.trim(), fecha: ag.fecha.value, hora: ag.hora.value, modalidad: ag.modalidad.value, tema: ag.tema.value, mensaje: ag.mensaje.value.trim(), idioma: L() ? "inglés" : "español"};
       const cuando = `${legible(datos.fecha)} · ${datos.hora}`;
       const txtWA = T(`Hola Gidex consulting, soy ${datos.nombre}. Solicité una reunión para el ${cuando} (${datos.modalidad}) sobre: ${datos.tema}.`, `Hello Gidex consulting, this is ${datos.nombre}. I requested a meeting on ${cuando} (${datos.modalidad}) about: ${datos.tema}.`);
-      const txtBtn = btn.textContent; btn.disabled = true; btn.textContent = T("Enviando…", "Sending…"); avisar(""); ok.hidden = true;
+      const txtBtn = btn.textContent; btn.disabled = true; btn.textContent = T("Enviando…", "Sending…"); avisar(T("Enviando tu solicitud, espera unos segundos…", "Sending your request, please wait a few seconds…")); ok.hidden = true;
       try{
         await enviarCorreo(datos, `Reunión solicitada · ${datos.fecha} ${datos.hora} · ${datos.nombre}`);
         const [hh, mm] = datos.hora.split(":").map(Number), ini = datos.fecha.replace(/-/g, "") + "T" + String(hh).padStart(2, "0") + String(mm).padStart(2, "0") + "00";
@@ -236,8 +249,9 @@
         ok.hidden = false; ag.reset(); horas();
         medirEvento("reunion-solicitada", T("Agenda", "Schedule"));
       }catch(_){
-        window.open(waUrl(txtWA), "_blank", "noopener");
-        avisar(T("No pudimos enviarla desde la página; abrimos WhatsApp con tu solicitud lista para enviar.", "We could not send it from the page; WhatsApp opened with your request ready to send."), "error");
+        const cuerpo = `Nombre: ${datos.nombre}\nCorreo: ${datos.correo}\nCelular: ${datos.celular}\nOrganización: ${datos.organizacion || "-"}\nFecha y hora: ${cuando}\nModalidad: ${datos.modalidad}\nTema: ${datos.tema}\n\n${datos.mensaje}`;
+        respaldo(estado, txtWA, "Reunión solicitada · " + cuando, cuerpo,
+          "No pudimos enviar tu solicitud desde la página. Tus datos siguen guardados; puedes enviarla con un clic:", "We could not send your request from the page. Your details are still here; you can send it with one click:");
       }finally{ btn.disabled = false; btn.textContent = txtBtn; }
     });
   }
