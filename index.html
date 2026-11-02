@@ -80,11 +80,15 @@
           <div class="acciones"><a class="btn btn-sol btn-lg" href="#contacto" data-motivo="Diagnóstico gratuito">Agenda un diagnóstico gratuito</a><a class="btn btn-borde btn-lg" href="#servicios">Ver servicios</a></div>
           <ul class="confianza" aria-label="Por qué elegirnos"><li><b>+7 años</b><span>en gestión de calidad y procesos</span></li><li><b>+5 años</b><span>en análisis y gestión de datos</span></li><li><b>Piura y Lima</b><span>atención presencial y remota en todo el Perú</span></li></ul>
         </div>
-        <div class="tablero" aria-hidden="true">
-          <div class="tab-cab"><span></span><span></span><span></span><b>Ejemplo: panel de tu negocio</b></div>
-          <div class="tab-kpis"><div><small>Tareas automatizadas</small><strong data-cuenta="128">0</strong></div><div><small>Horas ahorradas al mes</small><strong data-cuenta="64">0</strong></div></div>
-          <svg viewBox="0 0 300 110" class="tab-graf"><defs><linearGradient id="gg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#00BFFF" stop-opacity=".45"/><stop offset="1" stop-color="#00BFFF" stop-opacity="0"/></linearGradient></defs><path d="M0 95 L40 80 L80 86 L120 60 L160 66 L200 40 L240 44 L300 12 L300 110 L0 110Z" fill="url(#gg)"/><path class="linea" d="M0 95 L40 80 L80 86 L120 60 L160 66 L200 40 L240 44 L300 12" fill="none" stroke="#003399" stroke-width="3" stroke-linejoin="round"/></svg>
-          <div class="tab-flujo"><span>Formulario</span><i>→</i><span>Base de datos</span><i>→</i><span>Reporte con IA</span></div>
+        <div class="carrusel" id="carrusel" role="region" aria-roledescription="carrusel" aria-label="Lo que hacemos">
+          <div class="car-pista" id="car-pista" aria-live="off">
+            <figure class="car-item" role="group" aria-roledescription="diapositiva"><img src="assets/car-campo.webp" alt="Ingeniero agrónomo registra datos de un lote de mango en su tablet junto a un trabajador del fundo" width="1280" height="720" fetchpriority="high"><figcaption><b>Registros en campo</b><span>Datos de cada lote al instante, sin cuadernos</span></figcaption></figure>
+            <figure class="car-item" role="group" aria-roledescription="diapositiva"><img src="assets/car-planta.webp" alt="Ingeniera de calidad revisa un tablero de trazabilidad en su tablet junto a la línea de selección de mangos" width="1280" height="720" loading="lazy"><figcaption><b>Control de calidad en planta</b><span>Trazabilidad y mermas en tiempo real</span></figcaption></figure>
+            <figure class="car-item" role="group" aria-roledescription="diapositiva"><img src="assets/car-cultivos.webp" alt="Dos ingenieros revisan en una tablet el mapa de lotes y el rendimiento de un cultivo de arándanos con riego por goteo" width="1280" height="720" loading="lazy"><figcaption><b>Decisiones en el cultivo</b><span>Lotes, riego y rendimiento en un mapa</span></figcaption></figure>
+          </div>
+          <button class="car-btn car-ant" id="car-ant" type="button" aria-label="Diapositiva anterior">‹</button>
+          <button class="car-btn car-sig" id="car-sig" type="button" aria-label="Diapositiva siguiente">›</button>
+          <div class="car-pie"><div class="car-puntos" id="car-puntos"></div><button class="car-pausa" id="car-pausa" type="button" aria-label="Pausar el carrusel">❚❚</button></div>
         </div>
       </div>
       <div class="rejilla-3 lineas" hidden>

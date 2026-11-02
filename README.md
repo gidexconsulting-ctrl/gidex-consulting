@@ -28,11 +28,12 @@ index.html      menú lateral y todas las ventanas
 styles.css      estilos
 app.js          ventanas, carrusel, agenda, WhatsApp, idioma, diagnóstico, formularios y estadísticas
 i18n-en.js      traducción al inglés (texto en español → texto en inglés)
-assets/         logo, fotos del equipo e imagen para redes sociales
+assets/         logo, fotos del equipo, imágenes del carrusel e imagen para redes sociales
 ```
 
 ## Funciones
 
+- **Carrusel en Inicio:** fotos de ingenieros con tablet en campo, en planta y en cultivos. Avanza solo cada 5,5 s, se pausa al pasar el mouse y tiene botón de pausa; en celular se desliza con el dedo.
 - **WhatsApp flotante:** el mensaje que se envía cambia según la ventana (cotización en «Planes y precios», demostración en «Algarrobo», etc.).
 - **Agenda una reunión:** el visitante elige fecha (lunes a sábado) y hora; la solicitud llega al correo y puede añadirla a su Google Calendar o avisar por WhatsApp.
 - **Español / inglés:** botón ES | EN en la barra superior. Se recuerda la elección y también funciona con `?lang=en`. Si se cambia un texto en `index.html`, hay que agregar su traducción en `i18n-en.js` (si falta, se muestra en español).
