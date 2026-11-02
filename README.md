@@ -33,7 +33,7 @@ assets/         logo, fotos del equipo, imágenes del carrusel e imagen para red
 
 ## Funciones
 
-- **Carrusel en Inicio:** fotos de ingenieros con tablet en campo, planta empacadora, arándano, limón, arroz y planta industrial. Avanza solo cada 4,5 s de derecha a izquierda (siempre, aunque Windows tenga las animaciones desactivadas); en celular se desliza con el dedo.
+- **Carrusel en Inicio:** fotos de ingenieros con tablet en campo, planta empacadora, arándano, limón, arroz, uva y planta industrial. Avanza solo cada 4,5 s de derecha a izquierda (siempre, aunque Windows tenga las animaciones desactivadas); en celular se desliza con el dedo.
 - **WhatsApp flotante:** el mensaje que se envía cambia según la ventana (cotización en «Planes y precios», demostración en «Algarrobo», etc.).
 - **Agenda una reunión:** el visitante elige fecha (lunes a sábado) y hora; la solicitud llega al correo y puede añadirla a su Google Calendar o avisar por WhatsApp.
 - **Español / inglés:** botón ES | EN en la barra superior. Se recuerda la elección y también funciona con `?lang=en`. Si se cambia un texto en `index.html`, hay que agregar su traducción en `i18n-en.js` (si falta, se muestra en español).

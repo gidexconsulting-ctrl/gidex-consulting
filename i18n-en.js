@@ -38,6 +38,8 @@ window.GIDEX_EN = {
 "Ingeniera de campo revisa en su tablet un tablero de cosecha junto a árboles de limón y jabas con limones recién cosechados": "Agricultural engineer checks a harvest dashboard on a tablet next to lime trees and crates of freshly picked limes",
 "Riego en arrozAgua y fertilización controladas por parcela": "<b>Rice irrigation</b><span>Water and fertilization tracked by plot</span>",
 "Ingeniera agachada junto a una poza de arroz inundada revisa en su tablet el control de riego al atardecer": "Engineer crouching by a flooded rice paddy checks irrigation control on a tablet at sunset",
+"Seguimiento en viñedoRacimos y cosecha controlados por lote": "<b>Vineyard tracking</b><span>Bunches and harvest tracked by plot</span>",
+"Ingeniero revisa en su tablet el avance de la cosecha junto a un trabajador que sostiene un racimo de uva en el viñedo": "Engineer checks harvest progress on a tablet next to a worker holding a bunch of grapes in the vineyard",
 "Sistematización de procesosOperación de planta conectada a un tablero": "<b>Process systematization</b><span>Plant operations connected to a dashboard</span>",
 "Dos ingenieros con casco revisan una tablet junto al tablero de control de una planta industrial": "Two engineers in hard hats review a tablet next to the control panel of an industrial plant",
 "Ingeniero agrónomo registra datos de un lote de mango en su tablet junto a un trabajador del fundo": "Agronomist records data from a mango plot on a tablet next to a farm worker",
