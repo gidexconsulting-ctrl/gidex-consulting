@@ -302,8 +302,8 @@ html[lang^="es"] .idioma .id-es,html[lang^="en"] .idioma .id-en{background:var(-
 .car-item img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center;user-select:none;-webkit-user-drag:none}
 .car-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 16px;background:linear-gradient(transparent,rgba(0,20,60,.8) 55%);color:#fff;display:flex;flex-direction:column;line-height:1.3}
 .car-item figcaption b{font-family:var(--f-tit);font-size:.95rem}
-.car-item figcaption span{font-size:.76rem;color:#D6E8FF;padding-right:70px}
-.car-pie{position:absolute;right:16px;bottom:14px;display:flex;justify-content:flex-end;align-items:center;gap:10px}
+.car-item figcaption span{font-size:.76rem;color:#D6E8FF}
+.car-pie{position:absolute;right:14px;top:14px;padding:6px 8px;border-radius:99px;background:rgba(0,20,60,.35);display:flex;justify-content:flex-end;align-items:center;gap:10px}
 .car-puntos{display:flex;gap:6px}
 .car-puntos button{width:9px;height:9px;padding:0;border-radius:99px;border:0;background:rgba(220,230,245,.7);cursor:pointer;transition:width .25s,background .25s}
 .car-puntos button[aria-current="true"]{width:24px;background:var(--celeste)}
