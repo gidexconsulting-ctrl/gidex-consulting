@@ -166,7 +166,7 @@
   // ===== Envío de formularios al correo de Gidex consulting =====
   // Web3Forms (rápido): pega aquí la clave de acceso que llega a gidex.consulting@gmail.com al registrarse en web3forms.com.
   // Mientras esté vacía se usa FormSubmit.
-  const WEB3FORMS_CLAVE = "";
+  const WEB3FORMS_CLAVE = "ac970b05-c3d3-48bb-be23-560eaf78d88c";
   const enviarCorreo = async (datos, asunto) => {
     const ctl = new AbortController(), reloj = setTimeout(() => ctl.abort(), 25000);
     try{
