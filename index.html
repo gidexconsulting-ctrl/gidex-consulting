@@ -38,14 +38,17 @@
       <a href="#equipo" data-v="equipo"><span aria-hidden="true">👥</span>Equipo</a>
       <div class="lat-grupo">Servicios</div>
       <a href="#servicios" data-v="servicios"><span aria-hidden="true">⚙️</span>Servicios</a>
+      <a href="#precios" data-v="precios"><span aria-hidden="true">💰</span>Planes y precios</a>
       <a href="#metodo" data-v="metodo"><span aria-hidden="true">🔄</span>Cómo trabajamos</a>
       <a href="#algarrobo" data-v="algarrobo"><span aria-hidden="true">🌳</span>Algarrobo</a>
       <a href="#experiencia" data-v="experiencia"><span aria-hidden="true">📁</span>Experiencia</a>
       <a href="#trayectoria" data-v="trayectoria"><span aria-hidden="true">🤝</span>Trayectoria</a>
       <div class="lat-grupo">Contigo</div>
       <a href="#diagnostico" data-v="diagnostico"><span aria-hidden="true">📊</span>Diagnóstico rápido</a>
+      <a href="#agenda" data-v="agenda"><span aria-hidden="true">📅</span>Agenda una reunión</a>
       <a href="#testimonios" data-v="testimonios"><span aria-hidden="true">💬</span>Testimonios</a>
       <a href="#preguntas" data-v="preguntas"><span aria-hidden="true">❓</span>Preguntas frecuentes</a>
+      <a href="#recursos" data-v="recursos"><span aria-hidden="true">📚</span>Recursos y artículos</a>
       <a href="#contacto" data-v="contacto"><span aria-hidden="true">✉️</span>Contacto</a>
     </nav>
     <div class="lat-pie">
@@ -62,7 +65,8 @@
       <div class="sup-der">
         <a class="chip-c" href="https://wa.me/51953859154?text=Hola%20Gidex%20consulting%2C%20me%20interesan%20sus%20servicios" target="_blank" rel="noopener">💬 953 859 154</a>
         <a class="chip-c" href="https://wa.me/51925937386?text=Hola%20Gidex%20consulting%2C%20me%20interesan%20sus%20servicios" target="_blank" rel="noopener">💬 925 937 386</a>
-        <a class="btn btn-azul" href="#contacto">Escríbenos</a>
+        <a class="btn btn-azul" href="#agenda">Agenda una reunión</a>
+        <button class="idioma" id="idioma" type="button" aria-label="Ver la página en inglés" title="English"><span class="id-es">ES</span><span class="id-en">EN</span></button>
       </div>
     </header>
     <main class="ventanas" id="ventanas" tabindex="-1">
@@ -76,11 +80,22 @@
           <div class="acciones"><a class="btn btn-sol btn-lg" href="#contacto" data-motivo="Diagnóstico gratuito">Agenda un diagnóstico gratuito</a><a class="btn btn-borde btn-lg" href="#servicios">Ver servicios</a></div>
           <ul class="confianza" aria-label="Por qué elegirnos"><li><b>+7 años</b><span>en gestión de calidad y procesos</span></li><li><b>+5 años</b><span>en análisis y gestión de datos</span></li><li><b>Piura y Lima</b><span>atención presencial y remota en todo el Perú</span></li></ul>
         </div>
-        <div class="tablero" aria-hidden="true">
+        <div class="carrusel" id="carrusel" role="region" aria-roledescription="carrusel" aria-label="Lo que hacemos">
+          <div class="car-pista" id="car-pista" aria-live="off">
+            <div class="car-item car-tab" role="group" aria-roledescription="diapositiva"><div class="tablero" aria-hidden="true">
           <div class="tab-cab"><span></span><span></span><span></span><b>Ejemplo: panel de tu negocio</b></div>
           <div class="tab-kpis"><div><small>Tareas automatizadas</small><strong data-cuenta="128">0</strong></div><div><small>Horas ahorradas al mes</small><strong data-cuenta="64">0</strong></div></div>
           <svg viewBox="0 0 300 110" class="tab-graf"><defs><linearGradient id="gg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#00BFFF" stop-opacity=".45"/><stop offset="1" stop-color="#00BFFF" stop-opacity="0"/></linearGradient></defs><path d="M0 95 L40 80 L80 86 L120 60 L160 66 L200 40 L240 44 L300 12 L300 110 L0 110Z" fill="url(#gg)"/><path class="linea" d="M0 95 L40 80 L80 86 L120 60 L160 66 L200 40 L240 44 L300 12" fill="none" stroke="#003399" stroke-width="3" stroke-linejoin="round"/></svg>
           <div class="tab-flujo"><span>Formulario</span><i>→</i><span>Base de datos</span><i>→</i><span>Reporte con IA</span></div>
+        </div></div>
+            <figure class="car-item" role="group" aria-roledescription="diapositiva"><img src="assets/car-panel.webp" alt="Panel de inicio de Algarrobo con matrícula, recaudación, deudas y alerta temprana" width="960" height="600" loading="lazy"><figcaption><b>Algarrobo · panel del colegio</b><span>Matrícula, pensiones y alerta temprana en una sola pantalla</span></figcaption></figure>
+            <figure class="car-item" role="group" aria-roledescription="diapositiva"><img src="assets/car-lector.webp" alt="Lector de ingreso de Algarrobo con código QR y hora de llegada" width="960" height="600" loading="lazy"><figcaption><b>Asistencia con código QR</b><span>El ingreso se registra solo y avisa a las familias</span></figcaption></figure>
+            <figure class="car-item" role="group" aria-roledescription="diapositiva"><img src="assets/car-reportes.webp" alt="Reportes de Algarrobo con resumen de asistencia, notas y pagos por aula" width="960" height="600" loading="lazy"><figcaption><b>Reportes automáticos</b><span>Indicadores por aula listos en segundos, sin copiar y pegar</span></figcaption></figure>
+            <figure class="car-item" role="group" aria-roledescription="diapositiva"><img src="assets/car-equipo.webp" alt="Giancarlos Adanaque y Denis García, fundadores de Gidex consulting" width="960" height="600" loading="lazy"><figcaption><b>Nuestro equipo</b><span>Giancarlos Adanaque y Denis García, fundadores</span></figcaption></figure>
+          </div>
+          <button class="car-btn car-ant" id="car-ant" type="button" aria-label="Diapositiva anterior">‹</button>
+          <button class="car-btn car-sig" id="car-sig" type="button" aria-label="Diapositiva siguiente">›</button>
+          <div class="car-pie"><div class="car-puntos" id="car-puntos"></div><button class="car-pausa" id="car-pausa" type="button" aria-label="Pausar el carrusel">❚❚</button></div>
         </div>
       </div>
       <div class="rejilla-3 lineas" hidden>
@@ -89,7 +104,6 @@
         <a class="linea-tar" href="#servicios"><span class="serv-ico">🧠</span><h3>Inteligencia artificial</h3><p>Asistentes, agentes y modelos que leen documentos, responden consultas y anticipan resultados.</p><b>Ver servicios →</b></a>
       </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="sig" href="#problemas"><small>Siguiente →</small><b>¿Por qué Gidex?</b></a></nav>
     </section>
     <section class="vista" id="v-problemas" data-grupo="Gidex consulting" data-titulo="¿Por qué Gidex?" aria-label="¿Por qué Gidex?" hidden>
       <div class="vista-in">
@@ -106,7 +120,6 @@
       </div>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#inicio"><small>← Anterior</small><b>Inicio</b></a><a class="sig" href="#nosotros"><small>Siguiente →</small><b>Quiénes somos</b></a></nav>
     </section>
     <section class="vista" id="v-nosotros" data-grupo="Gidex consulting" data-titulo="Quiénes somos" aria-label="Quiénes somos" hidden>
       <div class="vista-in">
@@ -120,7 +133,6 @@
       </div>
       </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#problemas"><small>← Anterior</small><b>¿Por qué Gidex?</b></a><a class="sig" href="#valores"><small>Siguiente →</small><b>Valores y sectores</b></a></nav>
     </section>
     <section class="vista" id="v-valores" data-grupo="Gidex consulting" data-titulo="Valores y sectores" aria-label="Valores y sectores" hidden>
       <div class="vista-in">
@@ -137,7 +149,6 @@
       <div class="sectores"><span>🏫 Educación</span><span>🏥 Salud pública</span><span>🏛️ Gobiernos locales</span><span>🌱 Agroindustria</span><span>🛒 Comercio y mypes</span><span>🤝 Cooperación y ONG</span></div>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#nosotros"><small>← Anterior</small><b>Quiénes somos</b></a><a class="sig" href="#equipo"><small>Siguiente →</small><b>Equipo</b></a></nav>
     </section>
     <section class="vista" id="v-equipo" data-grupo="Gidex consulting" data-titulo="Equipo" aria-label="Equipo" hidden>
       <div class="vista-in">
@@ -178,7 +189,6 @@
       </div>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#valores"><small>← Anterior</small><b>Valores y sectores</b></a><a class="sig" href="#servicios"><small>Siguiente →</small><b>Servicios</b></a></nav>
     </section>
     <section class="vista" id="v-servicios" data-grupo="Servicios" data-titulo="Servicios" aria-label="Servicios" hidden>
       <div class="vista-in">
@@ -206,7 +216,45 @@
       </div>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#equipo"><small>← Anterior</small><b>Equipo</b></a><a class="sig" href="#metodo"><small>Siguiente →</small><b>Cómo trabajamos</b></a></nav>
+    </section>
+    <section class="vista" id="v-precios" data-grupo="Servicios" data-titulo="Planes y precios" aria-label="Planes y precios" hidden>
+      <div class="vista-in">
+      <div class="cont">
+      <p class="antetitulo">Planes y precios</p>
+      <h2>Empieza con lo que necesitas y crece por etapas</h2>
+      <p class="intro">Precios referenciales para que tengas una idea antes de conversar. El costo final depende del alcance y siempre te lo damos por escrito después del diagnóstico gratuito.</p>
+      <div class="planes">
+        <article class="plan">
+          <h3>Arranque digital</h3>
+          <p class="plan-para">Para quien quiere dejar de hacer a mano una tarea que le quita tiempo.</p>
+          <p class="precio"><small>Desde</small> S/ 600</p>
+          <ul><li>Una automatización: reporte, avisos o consolidación de datos</li><li>Formulario o plantilla conectada a tus datos</li><li>Manual de uso y una capacitación</li><li>30 días de soporte</li></ul>
+          <a class="btn btn-borde-azul" href="#contacto" data-motivo="Consulta o cotización" data-mensaje="Me interesa el plan Arranque digital.">Quiero este plan</a>
+        </article>
+        <article class="plan destacado">
+          <span class="plan-etq">Más elegido</span>
+          <h3>Sistema a medida</h3>
+          <p class="plan-para">Para ordenar un proceso completo con una aplicación y su tablero de indicadores.</p>
+          <p class="precio"><small>Desde</small> S/ 2 500</p>
+          <ul><li>Aplicación web o móvil con usuarios y permisos</li><li>Base de datos ordenada y migración de tus Excel</li><li>Tablero de indicadores en Power BI</li><li>Avisos automáticos por WhatsApp o correo</li><li>Capacitación del equipo y 3 meses de soporte</li></ul>
+          <a class="btn btn-sol" href="#contacto" data-motivo="Consulta o cotización" data-mensaje="Me interesa el plan Sistema a medida.">Quiero este plan</a>
+        </article>
+        <article class="plan">
+          <h3>Transformación con IA</h3>
+          <p class="plan-para">Para organizaciones que quieren un plan integral con inteligencia artificial.</p>
+          <p class="precio">A medida</p>
+          <ul><li>Diagnóstico de madurez digital y hoja de ruta</li><li>Asistentes y agentes de inteligencia artificial</li><li>Integración de tus sistemas y fuentes de datos</li><li>Acompañamiento mensual y medición de resultados</li></ul>
+          <a class="btn btn-borde-azul" href="#agenda">Agenda una reunión</a>
+        </article>
+      </div>
+      <div class="extras">
+        <div><b>🌳 Algarrobo para colegios</b><span>Precio según el número de estudiantes. <a href="#contacto" data-motivo="Demostración de Algarrobo">Solicita una demostración</a></span></div>
+        <div><b>🎓 Capacitaciones</b><span>Talleres de Excel, Power BI e inteligencia artificial, desde S/ 150 por persona.</span></div>
+        <div><b>🛠️ Soporte y mejora continua</b><span>Planes mensuales desde S/ 200 para mantener y mejorar tus soluciones.</span></div>
+      </div>
+      <p class="nota-precio">Precios en soles, no incluyen IGV. Aceptamos pago por etapas.</p>
+      </div>
+      </div>
     </section>
     <section class="vista" id="v-metodo" data-grupo="Servicios" data-titulo="Cómo trabajamos" aria-label="Cómo trabajamos" hidden>
       <div class="vista-in">
@@ -222,7 +270,6 @@
       </ol>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#servicios"><small>← Anterior</small><b>Servicios</b></a><a class="sig" href="#algarrobo"><small>Siguiente →</small><b>Algarrobo</b></a></nav>
     </section>
     <section class="vista" id="v-algarrobo" data-grupo="Servicios" data-titulo="Algarrobo" aria-label="Algarrobo" hidden>
       <div class="vista-in">
@@ -239,7 +286,6 @@
       </div>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#metodo"><small>← Anterior</small><b>Cómo trabajamos</b></a><a class="sig" href="#experiencia"><small>Siguiente →</small><b>Experiencia</b></a></nav>
     </section>
     <section class="vista" id="v-experiencia" data-grupo="Servicios" data-titulo="Experiencia" aria-label="Experiencia" hidden>
       <div class="vista-in">
@@ -257,7 +303,6 @@
       </div>
       </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#algarrobo"><small>← Anterior</small><b>Algarrobo</b></a><a class="sig" href="#trayectoria"><small>Siguiente →</small><b>Trayectoria</b></a></nav>
     </section>
     <section class="vista" id="v-trayectoria" data-grupo="Servicios" data-titulo="Trayectoria" aria-label="Trayectoria" hidden>
       <div class="vista-in">
@@ -270,7 +315,6 @@
       </div>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#experiencia"><small>← Anterior</small><b>Experiencia</b></a><a class="sig" href="#diagnostico"><small>Siguiente →</small><b>Diagnóstico rápido</b></a></nav>
     </section>
     <section class="vista" id="v-diagnostico" data-grupo="Contigo" data-titulo="Diagnóstico rápido" aria-label="Diagnóstico rápido" hidden>
       <div class="vista-in">
@@ -292,7 +336,46 @@
       </form>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#trayectoria"><small>← Anterior</small><b>Trayectoria</b></a><a class="sig" href="#testimonios"><small>Siguiente →</small><b>Testimonios</b></a></nav>
+    </section>
+    <section class="vista" id="v-agenda" data-grupo="Contigo" data-titulo="Agenda una reunión" aria-label="Agenda una reunión" hidden>
+      <div class="vista-in">
+      <div class="cont contacto-in">
+      <div>
+        <p class="antetitulo">Agenda una reunión</p>
+        <h2>Conversemos 30 minutos, sin costo</h2>
+        <p>Elige el día y la hora que te acomode. Te confirmamos la reunión por correo o WhatsApp en menos de 24 horas hábiles.</p>
+        <ul class="canales">
+          <li><span>🕘 Lunes a viernes de 9:00 a 18:00</span></li>
+          <li><span>🕘 Sábados de 9:00 a 13:00</span></li>
+          <li><span>💻 Por videollamada, llamada o en persona en Piura</span></li>
+        </ul>
+      </div>
+      <form class="form" id="agenda-form" novalidate>
+        <div class="fila">
+          <label>Nombre<input name="nombre" required maxlength="80" autocomplete="name"></label>
+          <label>Correo<input name="correo" type="email" required maxlength="120" autocomplete="email"></label>
+        </div>
+        <div class="fila">
+          <label><span>Celular o WhatsApp</span><input name="celular" type="tel" required maxlength="20" autocomplete="tel" inputmode="tel"></label>
+          <label><span>Organización <small>(opcional)</small></span><input name="organizacion" maxlength="100" autocomplete="organization"></label>
+        </div>
+        <div class="fila">
+          <label>Fecha<input name="fecha" type="date" required></label>
+          <label>Hora<select name="hora" required></select></label>
+        </div>
+        <div class="fila">
+          <label>Modalidad<select name="modalidad"><option value="Videollamada (Google Meet)">Videollamada (Google Meet)</option><option value="Llamada telefónica">Llamada telefónica</option><option value="WhatsApp">WhatsApp</option><option value="Presencial en Piura">Presencial en Piura</option></select></label>
+          <label>Tema<select name="tema"><option value="Diagnóstico gratuito">Diagnóstico gratuito</option><option value="Cotización">Cotización</option><option value="Demostración de Algarrobo">Demostración de Algarrobo</option><option value="Otro">Otro</option></select></label>
+        </div>
+        <label><span>¿Algo que debamos saber? <small>(opcional)</small></span><textarea name="mensaje" rows="3" maxlength="1000" placeholder="Cuéntanos brevemente tu necesidad…"></textarea></label>
+        <input type="text" name="_honey" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="acepto"><input type="checkbox" name="acepto" required> <span>Acepto que Gidex consulting use mis datos solo para coordinar esta reunión, según su <a href="#privacidad">política de privacidad</a>.</span></label>
+        <button class="btn btn-sol btn-lg" type="submit" id="agenda-enviar">Solicitar reunión</button>
+        <p class="estado" id="agenda-estado" role="status" aria-live="polite"></p>
+        <div class="agenda-ok" id="agenda-ok" hidden></div>
+      </form>
+      </div>
+      </div>
     </section>
     <section class="vista" id="v-testimonios" data-grupo="Contigo" data-titulo="Testimonios" aria-label="Testimonios" hidden>
       <div class="vista-in">
@@ -306,7 +389,6 @@
       </div>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#diagnostico"><small>← Anterior</small><b>Diagnóstico rápido</b></a><a class="sig" href="#preguntas"><small>Siguiente →</small><b>Preguntas frecuentes</b></a></nav>
     </section>
     <section class="vista" id="v-preguntas" data-grupo="Contigo" data-titulo="Preguntas frecuentes" aria-label="Preguntas frecuentes" hidden>
       <div class="vista-in">
@@ -324,7 +406,86 @@
       </div>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#testimonios"><small>← Anterior</small><b>Testimonios</b></a><a class="sig" href="#contacto"><small>Siguiente →</small><b>Contacto</b></a></nav>
+    </section>
+    <section class="vista" id="v-recursos" data-grupo="Contigo" data-titulo="Recursos y artículos" aria-label="Recursos y artículos" hidden>
+      <div class="vista-in">
+      <div class="cont">
+      <p class="antetitulo">Recursos</p>
+      <h2>Ideas prácticas para digitalizar tu organización</h2>
+      <p class="intro">Artículos cortos con consejos que puedes aplicar desde hoy, escritos por nuestro equipo.</p>
+      <div class="rejilla-3 articulos">
+        <a class="articulo" href="#art-automatizar"><span class="etq">Automatización</span><h3>5 tareas que tu empresa puede automatizar hoy</h3><p>Reportes, recordatorios y formularios: automatizaciones sencillas que se notan desde el primer mes.</p><small>4 minutos de lectura</small><b>Leer artículo →</b></a>
+        <a class="articulo" href="#art-excel"><span class="etq">Sistematización</span><h3>Cómo pasar del Excel a un sistema sin perder tus datos</h3><p>Cinco pasos para dejar atrás los archivos duplicados y trabajar con información confiable.</p><small>4 minutos de lectura</small><b>Leer artículo →</b></a>
+        <a class="articulo" href="#art-ia"><span class="etq">Inteligencia artificial</span><h3>Inteligencia artificial en una mype: por dónde empezar</h3><p>Usos concretos de la inteligencia artificial para ahorrar tiempo y atender mejor a tus clientes.</p><small>5 minutos de lectura</small><b>Leer artículo →</b></a>
+      </div>
+      </div>
+      </div>
+    </section>
+    <section class="vista" id="v-art-automatizar" data-grupo="Recursos y artículos" data-titulo="5 tareas que tu empresa puede automatizar hoy" data-padre="recursos" aria-label="5 tareas que tu empresa puede automatizar hoy" hidden>
+      <div class="vista-in"><article class="doc art">
+  <p class="antetitulo">Automatización</p>
+  <h1 class="art-tit">5 tareas que tu empresa puede automatizar hoy</h1>
+  <p class="act">Gidex consulting · noviembre de 2026 · 4 minutos de lectura</p>
+  <p>Muchas organizaciones pierden horas cada semana en tareas que una computadora puede hacer sola. No necesitas un gran sistema para empezar: estas cinco automatizaciones se implementan en pocos días y se notan desde el primer mes.</p>
+  <h2>1. Reportes que se arman solos</h2>
+  <p>Si cada fin de mes alguien copia datos de varias hojas para armar el mismo informe, ese reporte puede generarse automáticamente con Power Query o Google Apps Script y llegar a tu correo el día que lo necesitas.</p>
+  <h2>2. Recordatorios de pago y citas</h2>
+  <p>Los avisos por WhatsApp o correo antes de un vencimiento reducen la morosidad y las inasistencias, sin que nadie tenga que escribir mensaje por mensaje.</p>
+  <h2>3. Formularios que alimentan una base de datos</h2>
+  <p>Cambia el cuaderno o el Excel compartido por un formulario en el celular. Cada registro llega ordenado, con fecha y responsable, listo para analizar.</p>
+  <h2>4. Consolidación de información de varias sedes</h2>
+  <p>Cuando cada sede o área envía su archivo, un flujo automático puede juntarlos, revisar errores y dejar un solo consolidado actualizado.</p>
+  <h2>5. Alertas cuando algo se sale de lo normal</h2>
+  <p>Stock bajo, ventas que caen o un indicador fuera de rango: una alerta automática te avisa a tiempo para actuar.</p>
+  <h2>¿Por dónde empezar?</h2>
+  <p>Elige la tarea que más se repite y que más errores genera. Mide cuánto tiempo toma hoy y vuelve a medir después de automatizarla: así sabrás exactamente cuánto ganaste.</p>
+  <div class="art-cta"><p><b>¿Quieres aplicarlo en tu organización?</b> Te ayudamos a empezar con un diagnóstico gratuito.</p><a class="btn btn-sol" href="#agenda">Agenda una reunión</a></div>
+  </article></div>
+      <nav class="vista-nav fija" aria-label="Cambiar de ventana"><a class="ant" href="#recursos"><small>← Volver</small><b>Recursos y artículos</b></a></nav>
+    </section>
+    <section class="vista" id="v-art-excel" data-grupo="Recursos y artículos" data-titulo="Cómo pasar del Excel a un sistema sin perder tus datos" data-padre="recursos" aria-label="Cómo pasar del Excel a un sistema sin perder tus datos" hidden>
+      <div class="vista-in"><article class="doc art">
+  <p class="antetitulo">Sistematización</p>
+  <h1 class="art-tit">Cómo pasar del Excel a un sistema sin perder tus datos</h1>
+  <p class="act">Gidex consulting · noviembre de 2026 · 4 minutos de lectura</p>
+  <p>El Excel es una gran herramienta, pero cuando varias personas lo editan a la vez, cuando hay muchas versiones del mismo archivo o cuando los datos crecen, empieza a generar errores. Pasar a un sistema no significa empezar de cero: tus datos actuales son el punto de partida.</p>
+  <h2>1. Haz un inventario de tus archivos</h2>
+  <p>Lista qué archivos usas, quién los llena, cada cuánto se actualizan y qué decisiones se toman con ellos. Muchas veces descubrirás información duplicada en varios archivos.</p>
+  <h2>2. Ordena y limpia los datos</h2>
+  <p>Unifica nombres, fechas y códigos. Una fila por registro y una columna por dato. Este paso evita que los errores del Excel pasen al nuevo sistema.</p>
+  <h2>3. Diseña la base de datos</h2>
+  <p>Separa la información en tablas relacionadas (por ejemplo, clientes, productos y ventas). Así cada dato se escribe una sola vez y se usa en todas partes.</p>
+  <h2>4. Migra por etapas</h2>
+  <p>Empieza con un proceso, valida que todo coincida con el Excel y recién después sigue con el siguiente. Durante unas semanas puedes trabajar en paralelo para tener seguridad.</p>
+  <h2>5. Capacita y acompaña</h2>
+  <p>Un sistema solo funciona si el equipo lo usa. Una buena capacitación y un acompañamiento cercano en los primeros días marcan la diferencia.</p>
+  <h2>El resultado</h2>
+  <p>Información confiable, una sola versión de los datos, permisos según el rol de cada persona y reportes que se actualizan solos.</p>
+  <div class="art-cta"><p><b>¿Quieres aplicarlo en tu organización?</b> Te ayudamos a empezar con un diagnóstico gratuito.</p><a class="btn btn-sol" href="#agenda">Agenda una reunión</a></div>
+  </article></div>
+      <nav class="vista-nav fija" aria-label="Cambiar de ventana"><a class="ant" href="#recursos"><small>← Volver</small><b>Recursos y artículos</b></a></nav>
+    </section>
+    <section class="vista" id="v-art-ia" data-grupo="Recursos y artículos" data-titulo="Inteligencia artificial en una mype: por dónde empezar" data-padre="recursos" aria-label="Inteligencia artificial en una mype: por dónde empezar" hidden>
+      <div class="vista-in"><article class="doc art">
+  <p class="antetitulo">Inteligencia artificial</p>
+  <h1 class="art-tit">Inteligencia artificial en una mype: por dónde empezar</h1>
+  <p class="act">Gidex consulting · noviembre de 2026 · 5 minutos de lectura</p>
+  <p>La inteligencia artificial ya no es solo para las grandes empresas. Hoy una mype puede usarla para ahorrar tiempo, atender mejor a sus clientes y tomar decisiones con más información, sin grandes inversiones.</p>
+  <h2>1. Empieza por las tareas de texto</h2>
+  <p>Redactar respuestas, resumir documentos, preparar propuestas o revisar contratos son tareas en las que los asistentes de inteligencia artificial ahorran horas desde el primer día.</p>
+  <h2>2. Atención a clientes las 24 horas</h2>
+  <p>Un asistente puede responder las preguntas frecuentes por WhatsApp o en tu página web, y derivar a una persona cuando la consulta lo necesita.</p>
+  <h2>3. Analiza lo que ya tienes</h2>
+  <p>Encuestas, comentarios de clientes y registros de ventas guardan información valiosa. La inteligencia artificial puede clasificarla y encontrar patrones que a simple vista no se ven.</p>
+  <h2>4. Anticipa lo que viene</h2>
+  <p>Con datos ordenados, un modelo predictivo puede estimar la demanda, anticipar la falta de stock o detectar clientes con riesgo de irse.</p>
+  <h2>5. Cuida tus datos</h2>
+  <p>Define qué información puede usarse con herramientas externas y cuál no. Usa cuentas de la empresa, controla los accesos y respeta la Ley de Protección de Datos Personales.</p>
+  <h2>Un primer paso sencillo</h2>
+  <p>Elige un proceso concreto, prueba durante un mes y mide el resultado. Si funciona, amplíalo; si no, ajusta. La clave es empezar pequeño y crecer con resultados.</p>
+  <div class="art-cta"><p><b>¿Quieres aplicarlo en tu organización?</b> Te ayudamos a empezar con un diagnóstico gratuito.</p><a class="btn btn-sol" href="#agenda">Agenda una reunión</a></div>
+  </article></div>
+      <nav class="vista-nav fija" aria-label="Cambiar de ventana"><a class="ant" href="#recursos"><small>← Volver</small><b>Recursos y artículos</b></a></nav>
     </section>
     <section class="vista" id="v-contacto" data-grupo="Contigo" data-titulo="Contacto" aria-label="Contacto" hidden>
       <div class="vista-in">
@@ -347,7 +508,7 @@
         </div>
         <div class="fila">
           <label><span>Celular <small>(opcional)</small></span><input name="celular" type="tel" maxlength="20" autocomplete="tel" inputmode="tel"></label>
-          <label>Motivo<select name="motivo"><option>Consulta o cotización</option><option>Diagnóstico gratuito</option><option>Demostración de Algarrobo</option><option>Comentario o sugerencia</option><option>Testimonio</option><option>Otro</option></select></label>
+          <label>Motivo<select name="motivo"><option value="Consulta o cotización">Consulta o cotización</option><option value="Diagnóstico gratuito">Diagnóstico gratuito</option><option value="Demostración de Algarrobo">Demostración de Algarrobo</option><option value="Comentario o sugerencia">Comentario o sugerencia</option><option value="Testimonio">Testimonio</option><option value="Otro">Otro</option></select></label>
         </div>
         <label><span>Organización <small>(opcional)</small></span><input name="organizacion" maxlength="100" autocomplete="organization"></label>
         <label>Mensaje<textarea name="mensaje" rows="5" required maxlength="2000" placeholder="Cuéntanos tu necesidad, idea o comentario…"></textarea></label>
@@ -358,7 +519,6 @@
       </form>
     </div>
       </div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#preguntas"><small>← Anterior</small><b>Preguntas frecuentes</b></a></nav>
     </section>
     <section class="vista" id="v-privacidad" data-grupo="Gidex consulting" data-titulo="Política de privacidad" aria-label="Política de privacidad" hidden>
       <div class="vista-in"><article class="doc">
@@ -375,11 +535,12 @@
   <p>El diagnóstico rápido de la página se calcula en tu propio navegador: tus respuestas no se envían ni se guardan, salvo que decidas incluirlas en un mensaje.</p>
 
   <h2>3. Para qué usamos tus datos</h2>
-  <ul><li>Responder tus consultas, comentarios y solicitudes de cotización o demostración.</li><li>Coordinar reuniones o diagnósticos que nos pidas.</li><li>Publicar tu testimonio, solo si nos das tu autorización expresa.</li></ul>
+  <ul><li>Responder tus consultas, comentarios y solicitudes de cotización o demostración.</li><li>Coordinar las reuniones o diagnósticos que nos pidas, incluidas las solicitudes hechas desde «Agenda una reunión».</li><li>Publicar tu testimonio, solo si nos das tu autorización expresa.</li></ul>
   <p>No vendemos, alquilamos ni compartimos tus datos con terceros para fines comerciales.</p>
 
   <h2>4. Servicios de terceros</h2>
   <p>Para que los mensajes del formulario lleguen a nuestro correo usamos el servicio FormSubmit, que actúa como intermediario de envío. La página se publica en GitHub Pages y usa fuentes de Google Fonts. Estos proveedores pueden registrar datos técnicos de la conexión según sus propias políticas.</p>
+  <p>Para saber cuántas personas visitan la página y qué secciones les interesan podemos usar estadísticas anónimas y sin cookies (GoatCounter o Google Analytics con la IP anonimizada). Estas estadísticas no te identifican y no se usan con fines publicitarios.</p>
 
   <h2>5. Conservación</h2>
   <p>Conservamos tus datos solo el tiempo necesario para atender tu solicitud y la relación profesional que se derive de ella. Después los eliminamos, salvo que la ley nos obligue a conservarlos.</p>
@@ -394,12 +555,13 @@
   <p>Podemos actualizar esta política. La versión vigente siempre estará publicada en esta página con su fecha de actualización.</p>
 
   </article></div>
-      <nav class="vista-nav" aria-label="Cambiar de ventana"><a class="ant" href="#contacto"><small>← Volver</small><b>Contacto</b></a></nav>
+      <nav class="vista-nav fija" aria-label="Cambiar de ventana"><a class="ant" href="#contacto"><small>← Volver</small><b>Contacto</b></a></nav>
     </section>
     </main>
   </div>
 </div>
-<a class="wa-flot" href="https://wa.me/51953859154?text=Hola%20Gidex%20consulting%2C%20quisiera%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.3 3.3 0 0 0 2.2-1.6 2.7 2.7 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.3Z"/></svg></a>
+<a class="wa-flot" id="wa-flot" href="https://wa.me/51953859154?text=Hola%20Gidex%20consulting%2C%20quisiera%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><span class="wa-burbuja" id="wa-burbuja" aria-hidden="true">¿Hablamos por WhatsApp?</span><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.3 3.3 0 0 0 2.2-1.6 2.7 2.7 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.3Z"/></svg></a>
+<script src="i18n-en.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>

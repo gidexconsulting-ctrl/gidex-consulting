@@ -288,3 +288,91 @@ p{margin:0 0 .9em}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .tab-graf .linea{stroke-dashoffset:0}
 }
+
+/* ===== Botón de idioma ===== */
+.idioma{display:inline-flex;align-items:center;gap:2px;padding:4px;border-radius:999px;border:1.5px solid var(--linea);background:var(--superficie);font:inherit;font-weight:800;font-size:.78rem;cursor:pointer;color:var(--suave)}
+.idioma span{padding:5px 9px;border-radius:999px;line-height:1}
+html[lang^="es"] .idioma .id-es,html[lang^="en"] .idioma .id-en{background:var(--azul);color:#fff}
+.idioma:hover{border-color:var(--azul)}
+
+/* ===== Carrusel de Inicio ===== */
+.carrusel{position:relative;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 24px 50px rgba(0,20,70,.35)}
+.car-pista{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.car-item{flex:0 0 100%;margin:0;position:relative;min-width:0;display:flex;flex-direction:column}
+.car-tab .tablero{box-shadow:none;border-radius:0;flex:1;padding-bottom:44px}
+.car-item img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;object-position:top left;flex:1}
+.car-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 40px;background:linear-gradient(transparent,rgba(0,20,60,.88));color:#fff;display:flex;flex-direction:column;line-height:1.3}
+.car-item figcaption b{font-family:var(--f-tit);font-size:.95rem}
+.car-item figcaption span{font-size:.82rem;color:#D6E8FF}
+.car-btn{position:absolute;top:42%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--azul);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2);display:grid;place-items:center;padding:0 0 3px}
+.car-btn:hover{background:#fff}
+.car-ant{left:10px}.car-sig{right:10px}
+.car-pie{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;align-items:center;gap:10px}
+.car-puntos{display:flex;gap:6px}
+.car-puntos button{width:9px;height:9px;padding:0;border-radius:99px;border:0;background:rgba(150,170,200,.75);cursor:pointer;transition:width .25s,background .25s}
+.car-puntos button[aria-current="true"]{width:24px;background:var(--celeste)}
+.car-pausa{border:0;background:rgba(255,255,255,.9);color:var(--azul);border-radius:99px;font-size:.62rem;font-weight:800;padding:4px 8px;cursor:pointer;letter-spacing:-.1em}
+
+/* ===== Planes y precios ===== */
+.btn-borde-azul{border-color:var(--azul);color:var(--azul);background:transparent}
+.btn-borde-azul:hover{background:var(--azul-suave)}
+.planes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.plan{position:relative;background:var(--superficie);border:1px solid var(--linea);border-radius:22px;padding:22px;box-shadow:var(--sombra);display:flex;flex-direction:column}
+.plan.destacado{border:2px solid var(--azul);box-shadow:0 18px 40px rgba(0,51,153,.16)}
+.plan-etq{position:absolute;top:-12px;left:22px;background:var(--azul);color:#fff;font-size:.74rem;font-weight:800;padding:4px 12px;border-radius:999px}
+.plan-para{font-size:.9rem;color:var(--suave)}
+.precio{font-family:var(--f-tit);font-size:1.7rem;color:var(--azul);font-weight:700;margin:0 0 12px}
+.precio small{font-family:var(--f-txt);font-size:.8rem;color:var(--suave);font-weight:600}
+.plan ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:7px;flex:1}
+.plan li{font-size:.9rem;padding-left:24px;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;top:.15em;width:17px;height:17px;border-radius:50%;background:var(--celeste-suave);color:var(--acento);font-size:.68rem;font-weight:800;display:grid;place-items:center}
+.plan .btn{align-self:stretch}
+.extras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.extras div{background:var(--superficie);border:1px solid var(--linea);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:3px}
+.extras b{color:var(--tinta);font-size:.93rem}
+.extras span{font-size:.86rem}
+.extras a{color:var(--acento);font-weight:700}
+.nota-precio{margin:14px 0 0;font-size:.8rem;color:var(--suave)}
+
+/* ===== Recursos y artículos ===== */
+.articulo{display:flex;flex-direction:column;text-decoration:none;background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:20px;box-shadow:var(--sombra);transition:transform .2s,border-color .2s}
+.articulo:hover{transform:translateY(-3px);border-color:var(--azul)}
+.articulo p{flex:1;font-size:.92rem}
+.articulo small{color:var(--suave);font-size:.78rem;margin-bottom:6px}
+.articulo b{color:var(--acento)}
+.art{max-width:780px;margin-inline:auto}
+.art-tit{font-size:clamp(1.4rem,2.6vw,1.9rem)}
+.art h2{font-size:1.08rem;margin-top:24px}
+.art-cta{margin-top:26px;padding:18px 20px;border-radius:16px;background:var(--azul-suave);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.art-cta p{margin:0;max-width:460px}
+
+/* ===== Agenda ===== */
+.agenda-ok{border-radius:14px;padding:16px;background:linear-gradient(135deg,var(--azul),var(--acento));color:#EAF4FF}
+.agenda-ok h3{color:#fff;margin-bottom:6px}
+.agenda-ok p{margin:0 0 12px}
+.agenda-ok .acc{display:flex;flex-wrap:wrap;gap:8px}
+.agenda-ok .btn{padding:10px 16px;font-size:.9rem}
+.btn-wa{background:#25D366;color:#063B1C}
+
+/* ===== WhatsApp flotante ===== */
+.wa-burbuja{position:absolute;right:66px;top:50%;transform:translateY(-50%) scale(.9);transform-origin:right center;white-space:nowrap;background:#fff;color:var(--tinta);font-weight:700;font-size:.85rem;padding:8px 14px;border-radius:14px;box-shadow:0 8px 24px rgba(11,27,58,.18);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.wa-flot:hover .wa-burbuja,.wa-flot.avisa .wa-burbuja{opacity:1;transform:translateY(-50%) scale(1)}
+
+@media (max-width:1100px){
+  .planes{grid-template-columns:1fr 1fr}
+  .extras{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .planes{grid-template-columns:1fr}
+  .wa-burbuja{display:none}
+  .car-btn{width:32px;height:32px;font-size:1.25rem}
+}
+.plan ul{align-content:start}
+.vista-nav{padding-right:72px}
+@media (max-width:640px){.vista-nav{padding-right:0;padding-bottom:64px}}
+.portada > *{min-width:0}
+.sup-tit{min-width:0;flex:1}
+.sup-tit b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sup-der{flex-wrap:nowrap;flex:none}
+@media (max-width:1180px){.sup-der .chip-c{display:none}}
+@media (max-width:640px){.sup-der .btn{display:none}}

@@ -14,8 +14,8 @@ El sitio funciona como una aplicación, igual que Algarrobo: un **menú lateral*
 | Grupo | Ventanas |
 |---|---|
 | Gidex consulting | Inicio · ¿Por qué Gidex? · Quiénes somos (misión y visión) · Valores y sectores · Equipo |
-| Servicios | Servicios (8, con «¿Qué incluye?») · Cómo trabajamos · Algarrobo · Experiencia · Trayectoria |
-| Contigo | Diagnóstico rápido · Testimonios · Preguntas frecuentes · Contacto |
+| Servicios | Servicios (8, con «¿Qué incluye?») · Planes y precios · Cómo trabajamos · Algarrobo · Experiencia · Trayectoria |
+| Contigo | Diagnóstico rápido · Agenda una reunión · Testimonios · Preguntas frecuentes · Recursos y artículos (3 artículos) · Contacto |
 
 Cada ventana tiene su propia dirección (por ejemplo `#servicios`), así se puede compartir directamente. Las direcciones antiguas (`servicios.html`, `contacto.html`, etc.) redirigen a su ventana.
 
@@ -26,9 +26,18 @@ Colores y tipografías de Algarrobo: azul rey `#003399`, celeste `#00BFFF`, fond
 ```
 index.html      menú lateral y todas las ventanas
 styles.css      estilos
-app.js          ventanas, diagnóstico rápido y formulario
-assets/         logo, fotos del equipo e imagen para redes sociales
+app.js          ventanas, carrusel, agenda, WhatsApp, idioma, diagnóstico, formularios y estadísticas
+i18n-en.js      traducción al inglés (texto en español → texto en inglés)
+assets/         logo, fotos del equipo, imágenes del carrusel e imagen para redes sociales
 ```
+
+## Funciones
+
+- **Carrusel en Inicio:** panel de ejemplo, capturas de Algarrobo y foto del equipo. Avanza solo cada 5,5 s, se pausa al pasar el mouse y tiene botón de pausa; en celular se desliza con el dedo.
+- **WhatsApp flotante:** el mensaje que se envía cambia según la ventana (cotización en «Planes y precios», demostración en «Algarrobo», etc.).
+- **Agenda una reunión:** el visitante elige fecha (lunes a sábado) y hora; la solicitud llega al correo y puede añadirla a su Google Calendar o avisar por WhatsApp.
+- **Español / inglés:** botón ES | EN en la barra superior. Se recuerda la elección y también funciona con `?lang=en`. Si se cambia un texto en `index.html`, hay que agregar su traducción en `i18n-en.js` (si falta, se muestra en español).
+- **Estadísticas de visitas:** al inicio de `app.js`, en `ANALITICA`, se pega el nombre de la cuenta de GoatCounter (gratis y sin cookies) o el ID de Google Analytics 4. Se registra cada ventana vista y los clics en WhatsApp, formularios enviados, reuniones solicitadas y cambio de idioma.
 
 ## Formulario de contacto
 
