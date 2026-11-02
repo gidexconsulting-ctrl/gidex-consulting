@@ -7,7 +7,7 @@
   // ===== Estadísticas de visitas =====
   // Para activarlas, pega aquí tu código. GoatCounter (gratis y sin cookies): el nombre de tu cuenta, por ejemplo "gidex".
   // Google Analytics 4: el ID de medición, por ejemplo "G-ABC123XYZ". Si ambos están vacíos, no se carga nada.
-  const ANALITICA = {goatcounter: "", ga4: ""};
+  const ANALITICA = {goatcounter: "gidexconsulting", ga4: ""};
   const cola = [];
   const gcListo = () => window.goatcounter && typeof window.goatcounter.count === "function";
   const gc = d => { if(!ANALITICA.goatcounter) return; if(gcListo()) window.goatcounter.count(d); else cola.push(d); };
