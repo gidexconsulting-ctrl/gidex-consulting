@@ -245,7 +245,7 @@ window.GIDEX_EN = {
 "Auditorías internas y acciones correctivas": "Internal audits and corrective actions",
 "Control estadístico de procesos con Minitab": "Statistical process control with Minitab",
 "Matriz IPERC, inspecciones e incidentes de SST registrados desde el celular": "Hazard matrix, inspections and safety incidents recorded from a phone",
-"Asesoría en investigación y tesis": "Research and thesis advisory",
+"Asesoría en investigación": "Research advisory",
 "Te apoyamos con los instrumentos, el cálculo de la muestra, el análisis estadístico y la interpretación de los resultados de tu investigación.": "We support you with the instruments, sample size calculation, statistical analysis and interpretation of your research results.",
 "Instrumentos, encuestas y cálculo de la muestra": "Instruments, surveys and sample size",
 "Análisis estadístico con SPSS, Stata, R o Python": "Statistical analysis with SPSS, Stata, R or Python",
