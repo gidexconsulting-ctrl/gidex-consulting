@@ -300,19 +300,15 @@ html[lang^="es"] .idioma .id-es,html[lang^="en"] .idioma .id-en{background:var(-
 .car-pista{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
 .car-item{flex:0 0 100%;margin:0;position:relative;min-width:0}
 .car-item img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center;user-select:none;-webkit-user-drag:none}
-.car-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 34px;background:linear-gradient(transparent,rgba(0,20,60,.8) 55%);color:#fff;display:flex;flex-direction:column;line-height:1.3}
+.car-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 16px;background:linear-gradient(transparent,rgba(0,20,60,.8) 55%);color:#fff;display:flex;flex-direction:column;line-height:1.3}
 .car-item figcaption b{font-family:var(--f-tit);font-size:.95rem}
-.car-item figcaption span{font-size:.76rem;color:#D6E8FF}
-.car-btn{position:absolute;top:38%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--azul);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2);display:grid;place-items:center;padding:0 0 3px}
-.car-btn:hover{background:#fff}
-.car-ant{left:10px}.car-sig{right:10px}
-.car-pie{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;align-items:center;gap:10px}
+.car-item figcaption span{font-size:.76rem;color:#D6E8FF;padding-right:70px}
+.car-pie{position:absolute;right:16px;bottom:14px;display:flex;justify-content:flex-end;align-items:center;gap:10px}
 .car-puntos{display:flex;gap:6px}
 .car-puntos button{width:9px;height:9px;padding:0;border-radius:99px;border:0;background:rgba(220,230,245,.7);cursor:pointer;transition:width .25s,background .25s}
 .car-puntos button[aria-current="true"]{width:24px;background:var(--celeste)}
-.car-pausa{border:0;background:rgba(255,255,255,.9);color:var(--azul);border-radius:99px;font-size:.62rem;font-weight:800;padding:4px 8px;cursor:pointer;letter-spacing:-.1em}
 @media (prefers-reduced-motion:reduce){.car-pista{transition:transform .55s cubic-bezier(.4,0,.2,1)!important}}
-@media (max-width:640px){.car-btn{width:32px;height:32px;font-size:1.25rem}.car-item figcaption span{display:none}.car-item figcaption{padding-bottom:34px}}
+@media (max-width:640px){.car-item figcaption span{display:none}}
 
 /* ===== Planes y precios ===== */
 .btn-borde-azul{border-color:var(--azul);color:var(--azul);background:transparent}

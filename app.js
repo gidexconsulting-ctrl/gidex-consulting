@@ -140,8 +140,8 @@
   // ===== Carrusel de Inicio =====
   const pista = $("#car-pista");
   if(pista){
-    const items = [...pista.children], n = items.length, puntos = $("#car-puntos"), btnP = $("#car-pausa"), car = $("#carrusel");
-    let i = 0, pausado = false, reloj = null;
+    const items = [...pista.children], n = items.length, puntos = $("#car-puntos"), car = $("#carrusel");
+    let i = 0, reloj = null;
     puntos.innerHTML = items.map(() => '<button type="button"></button>').join("");
     const ir = k => {
       i = (k + n) % n; pista.style.transform = `translateX(-${i * 100}%)`;
@@ -151,14 +151,10 @@
     const etiquetas = () => {
       items.forEach((it, j) => it.setAttribute("aria-label", T(`${j + 1} de ${n}`, `${j + 1} of ${n}`)));
       $$("button", puntos).forEach((b, j) => b.setAttribute("aria-label", T(`Ver diapositiva ${j + 1}`, `Go to slide ${j + 1}`)));
-      btnP.textContent = pausado ? "▶" : "❚❚"; btnP.setAttribute("aria-label", pausado ? T("Reanudar el carrusel", "Play the carousel") : T("Pausar el carrusel", "Pause the carousel"));
     };
-    const avanzar = () => { if(!pausado && actual === "inicio" && !document.hidden) ir(i + 1); };
+    const avanzar = () => { if(actual === "inicio" && !document.hidden) ir(i + 1); };
     const reiniciar = () => { clearInterval(reloj); reloj = setInterval(avanzar, 4500); };
-    $("#car-ant").addEventListener("click", () => { ir(i - 1); reiniciar(); });
-    $("#car-sig").addEventListener("click", () => { ir(i + 1); reiniciar(); });
     puntos.addEventListener("click", e => { const b = e.target.closest("button"); if(b){ ir($$("button", puntos).indexOf(b)); reiniciar(); } });
-    btnP.addEventListener("click", () => { pausado = !pausado; etiquetas(); });
     car.addEventListener("keydown", e => { if(e.key === "ArrowLeft"){ ir(i - 1); reiniciar(); } if(e.key === "ArrowRight"){ ir(i + 1); reiniciar(); } });
     let x0 = null;
     pista.addEventListener("pointerdown", e => { x0 = e.clientX; });
