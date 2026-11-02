@@ -31,7 +31,6 @@ window.GIDEX_EN = {
 "+7 añosen gestión de calidad y procesos": "<b>7+ years</b><span>in quality and process management</span>",
 "+5 añosen análisis y gestión de datos": "<b>5+ years</b><span>in data analysis and management</span>",
 "Piura y Limaatención presencial y remota en todo el Perú": "<b>Piura and Lima</b><span>on-site and remote service across Peru</span>",
-"Registros en campoDatos de cada lote al instante, sin cuadernos": "<b>Field records</b><span>Data from every plot instantly, no notebooks</span>",
 "Control de calidad en plantaTrazabilidad y mermas en tiempo real": "<b>Quality control in the plant</b><span>Real-time traceability and losses</span>",
 "Decisiones en el cultivoLotes, riego y rendimiento en un mapa": "<b>Decisions in the field</b><span>Plots, irrigation and yield on one map</span>",
 "Cosecha de limónCalidad y rendimiento registrados en el campo": "<b>Lime harvest</b><span>Quality and yield recorded in the field</span>",
