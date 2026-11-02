@@ -73,7 +73,7 @@
   // ===== Ventanas: se muestra una sola a la vez, según el #enlace =====
   const zona = $("#ventanas"), vistas = $$(".vista"), lateral = $("#lateral"), hamb = $("#hamb");
   const anio = $("#anio"); if(anio){ anio.textContent = new Date().getFullYear(); anio.setAttribute("translate", "no"); }
-  ["#sup-titulo", "#sup-grupo", "#diag-res", "#estado", "#agenda-estado", "#agenda-ok", "#car-puntos", "#idioma"].forEach(s => { const e = $(s); if(e) e.setAttribute("translate", "no"); });
+  ["#sup-titulo", "#sup-grupo", "#diag-res", "#estado", "#agenda-estado", "#agenda-ok", "#idioma"].forEach(s => { const e = $(s); if(e) e.setAttribute("translate", "no"); });
   $$("[data-cuenta]").forEach(e => e.setAttribute("translate", "no"));
   const cerrarMenu = () => { lateral.classList.remove("abierto"); hamb.setAttribute("aria-expanded", "false"); };
   hamb.addEventListener("click", () => { const a = !lateral.classList.contains("abierto"); lateral.classList.toggle("abierto", a); hamb.setAttribute("aria-expanded", String(a)); });
@@ -136,37 +136,6 @@
   }
   try{ if(!sessionStorage.getItem("gx-wa")){ setTimeout(() => { const w = $("#wa-flot"); w.classList.add("avisa"); setTimeout(() => w.classList.remove("avisa"), 5000); try{ sessionStorage.setItem("gx-wa", "1"); }catch(_){} }, 7000); } }catch(_){}
   document.addEventListener("click", e => { const a = e.target.closest('a[href*="wa.me/"]'); if(a) medirEvento("clic-whatsapp", "WhatsApp"); });
-
-  // ===== Carrusel de Inicio =====
-  const pista = $("#car-pista");
-  if(pista){
-    const items = [...pista.children], n = items.length, puntos = $("#car-puntos"), btnP = $("#car-pausa"), car = $("#carrusel");
-    let i = 0, pausado = RM, encima = false, reloj = null;
-    puntos.innerHTML = items.map(() => '<button type="button"></button>').join("");
-    const ir = k => {
-      i = (k + n) % n; pista.style.transform = `translateX(-${i * 100}%)`;
-      items.forEach((it, j) => { const oc = j !== i; it.setAttribute("aria-hidden", String(oc)); it.inert = oc; });
-      $$("button", puntos).forEach((b, j) => b.setAttribute("aria-current", String(j === i)));
-    };
-    const etiquetas = () => {
-      items.forEach((it, j) => it.setAttribute("aria-label", T(`${j + 1} de ${n}`, `${j + 1} of ${n}`)));
-      $$("button", puntos).forEach((b, j) => b.setAttribute("aria-label", T(`Ver diapositiva ${j + 1}`, `Go to slide ${j + 1}`)));
-      btnP.textContent = pausado ? "▶" : "❚❚"; btnP.setAttribute("aria-label", pausado ? T("Reanudar el carrusel", "Play the carousel") : T("Pausar el carrusel", "Pause the carousel"));
-    };
-    const avanzar = () => { if(!pausado && !encima && actual === "inicio" && !document.hidden) ir(i + 1); };
-    const reiniciar = () => { clearInterval(reloj); reloj = setInterval(avanzar, 5500); };
-    $("#car-ant").addEventListener("click", () => { ir(i - 1); reiniciar(); });
-    $("#car-sig").addEventListener("click", () => { ir(i + 1); reiniciar(); });
-    puntos.addEventListener("click", e => { const b = e.target.closest("button"); if(b){ ir($$("button", puntos).indexOf(b)); reiniciar(); } });
-    btnP.addEventListener("click", () => { pausado = !pausado; etiquetas(); });
-    car.addEventListener("mouseenter", () => encima = true); car.addEventListener("mouseleave", () => encima = false);
-    car.addEventListener("focusin", () => encima = true); car.addEventListener("focusout", () => encima = false);
-    car.addEventListener("keydown", e => { if(e.key === "ArrowLeft"){ ir(i - 1); reiniciar(); } if(e.key === "ArrowRight"){ ir(i + 1); reiniciar(); } });
-    let x0 = null;
-    pista.addEventListener("pointerdown", e => { x0 = e.clientX; });
-    pista.addEventListener("pointerup", e => { if(x0 === null) return; const dx = e.clientX - x0; x0 = null; if(Math.abs(dx) > 40){ ir(i + (dx < 0 ? 1 : -1)); reiniciar(); } });
-    ir(0); etiquetas(); reiniciar(); alCambiar.push(etiquetas);
-  }
 
   // ===== Formulario: motivo y mensaje que vienen de otros botones o enlaces =====
   const form = $("#form");
@@ -279,7 +248,7 @@
   let pref = null; try{ pref = localStorage.getItem("gx-idioma"); }catch(_){}
   const qLang = qs.get("lang"); if(qLang === "en" || qLang === "es") pref = qLang;
   if(!pref && /^en\b/i.test(navigator.language || "") ) pref = "en";
-  $("#idioma").addEventListener("click", () => ponerIdioma(!L(), true));
+  $("#idioma").addEventListener("click", e => { const en = e.target.closest(".id-en") ? true : e.target.closest(".id-es") ? false : !L(); if(en !== L()) ponerIdioma(en, true); });
   if(pref === "en") ponerIdioma(true, false); else ponerIdioma(false, false);
   mostrar(ruta(), false);
 })();
