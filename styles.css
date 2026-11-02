@@ -374,3 +374,14 @@ html[lang^="es"] .idioma .id-es,html[lang^="en"] .idioma .id-en{background:var(-
 @media (max-width:640px){.sup-der .btn{display:none}}
 .respaldo{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .respaldo .btn{padding:9px 16px;font-size:.88rem}
+
+/* ===== Imágenes de servicios, secciones y artículos ===== */
+.serv-img{display:block;width:calc(100% + 36px);max-width:none;margin:-18px -18px 0;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radio) var(--radio) 0 0;background:var(--hundido)}
+.serv-img + .serv-ico{margin-top:-22px;position:relative;border:3px solid var(--superficie);box-sizing:content-box}
+.sec-img{margin:0 0 22px;border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);background:var(--hundido)}
+.sec-img{max-width:1000px}
+.sec-img img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:cover;object-position:center 35%}
+.art-mini{display:block;width:calc(100% + 40px);max-width:none;margin:-20px -20px 14px;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radio) var(--radio) 0 0;background:var(--hundido)}
+.art-img{margin:14px 0 18px;border-radius:14px;overflow:hidden;background:var(--hundido)}
+.art-img img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+@media (max-width:640px){.sec-img img{aspect-ratio:3/2}}
