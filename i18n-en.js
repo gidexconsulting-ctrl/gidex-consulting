@@ -198,7 +198,6 @@ window.GIDEX_EN = {
 "🔬 Universidades e investigación": "🔬 Universities and research",
 "🏗️ Construcción e infraestructura": "🏗️ Construction and infrastructure",
 "🧭 Estudios sociales": "🧭 Social research",
-"Y también:": "And also:",
 "Encuestadora de salud con tablet visita una vivienda con mosquitero en una zona tropical": "Health surveyor with a tablet visits a home with a mosquito net in a tropical area",
 "Analista revisa en su laptop un mapa distrital por zonas con los Andes al fondo": "Analyst reviews a district map by zones on a laptop with the Andes in the background",
 "Analista de datos frente a dos monitores con gráficos y una subestación eléctrica al fondo": "Data analyst at two monitors with charts and an electrical substation in the background",
