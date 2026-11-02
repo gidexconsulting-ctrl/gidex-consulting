@@ -154,7 +154,7 @@ window.GIDEX_EN = {
 "Indicadores de brecha y apoyo a planes de desarrollo": "Gap indicators and support for development plans",
 "Informe final con gráficos y conclusiones": "Final report with charts and conclusions",
 "Capacitación y acompañamiento": "Training and support",
-"Industria y manufacturaProducción e indicadores de planta en tiempo real": "<b>Industry and manufacturing</b><span>Real-time production and plant indicators</span>",
+"Cooperación y ONGProyectos y comunidades con datos confiables": "<b>Cooperation and NGOs</b><span>Projects and communities with reliable data</span>",
 "Ingeniera con casco revisa en su tablet los indicadores de producción junto a un operario en una planta embotelladora": "Engineer in a hard hat reviews production indicators on her tablet with an operator at a bottling plant",
 "Salud públicaCampañas y atenciones registradas al instante": "<b>Public health</b><span>Campaigns and patient visits recorded instantly</span>",
 "Enfermera registra en su tablet la atención de una señora durante una campaña de salud en la plaza de un pueblo": "Nurse records a woman's checkup on her tablet during a health campaign in a town square",
