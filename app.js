@@ -141,7 +141,7 @@
   const pista = $("#car-pista");
   if(pista){
     const items = [...pista.children], n = items.length, puntos = $("#car-puntos"), btnP = $("#car-pausa"), car = $("#carrusel");
-    let i = 0, pausado = RM, encima = false, reloj = null;
+    let i = 0, pausado = false, reloj = null;
     puntos.innerHTML = items.map(() => '<button type="button"></button>').join("");
     const ir = k => {
       i = (k + n) % n; pista.style.transform = `translateX(-${i * 100}%)`;
@@ -153,14 +153,12 @@
       $$("button", puntos).forEach((b, j) => b.setAttribute("aria-label", T(`Ver diapositiva ${j + 1}`, `Go to slide ${j + 1}`)));
       btnP.textContent = pausado ? "▶" : "❚❚"; btnP.setAttribute("aria-label", pausado ? T("Reanudar el carrusel", "Play the carousel") : T("Pausar el carrusel", "Pause the carousel"));
     };
-    const avanzar = () => { if(!pausado && !encima && actual === "inicio" && !document.hidden) ir(i + 1); };
-    const reiniciar = () => { clearInterval(reloj); reloj = setInterval(avanzar, 5500); };
+    const avanzar = () => { if(!pausado && actual === "inicio" && !document.hidden) ir(i + 1); };
+    const reiniciar = () => { clearInterval(reloj); reloj = setInterval(avanzar, 4500); };
     $("#car-ant").addEventListener("click", () => { ir(i - 1); reiniciar(); });
     $("#car-sig").addEventListener("click", () => { ir(i + 1); reiniciar(); });
     puntos.addEventListener("click", e => { const b = e.target.closest("button"); if(b){ ir($$("button", puntos).indexOf(b)); reiniciar(); } });
     btnP.addEventListener("click", () => { pausado = !pausado; etiquetas(); });
-    car.addEventListener("mouseenter", () => encima = true); car.addEventListener("mouseleave", () => encima = false);
-    car.addEventListener("focusin", () => encima = true); car.addEventListener("focusout", () => encima = false);
     car.addEventListener("keydown", e => { if(e.key === "ArrowLeft"){ ir(i - 1); reiniciar(); } if(e.key === "ArrowRight"){ ir(i + 1); reiniciar(); } });
     let x0 = null;
     pista.addEventListener("pointerdown", e => { x0 = e.clientX; });

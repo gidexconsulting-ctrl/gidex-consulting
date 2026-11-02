@@ -311,7 +311,7 @@ html[lang^="es"] .idioma .id-es,html[lang^="en"] .idioma .id-en{background:var(-
 .car-puntos button{width:9px;height:9px;padding:0;border-radius:99px;border:0;background:rgba(220,230,245,.7);cursor:pointer;transition:width .25s,background .25s}
 .car-puntos button[aria-current="true"]{width:24px;background:var(--celeste)}
 .car-pausa{border:0;background:rgba(255,255,255,.9);color:var(--azul);border-radius:99px;font-size:.62rem;font-weight:800;padding:4px 8px;cursor:pointer;letter-spacing:-.1em}
-@media (prefers-reduced-motion:reduce){.car-pista{transition:none}}
+@media (prefers-reduced-motion:reduce){.car-pista{transition:transform .55s cubic-bezier(.4,0,.2,1)!important}}
 @media (max-width:640px){.car-btn{width:32px;height:32px;font-size:1.25rem}.car-item figcaption span{display:none}.car-item figcaption{padding-bottom:34px}}
 
 /* ===== Planes y precios ===== */
